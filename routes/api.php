@@ -17,7 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['namespace', 'Api'], function () {
+Route::group(['namespace' => 'Api'], function () {
     Route::name('api.login')->post('login', 'AuthController@login');
     Route::post('refresh', 'AuthController@refresh');
 
@@ -28,6 +28,7 @@ Route::group(['namespace', 'Api'], function () {
 //        Route::get('users', function () {
 //            return \App\Models\User::all();
 //        });
+            Route::get('categories/{category}/bill_pays', 'CategoryBillPayController@index');
             Route::resource('categories', 'CategoryController', ['except' => ['create', 'edit']]);
             Route::resource('bill_pays', 'BillPayController', ['except' => ['create', 'edit']]);
 

@@ -15,4 +15,8 @@ class Category extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function billPays(){
+        return $this->hasMany(BillPay::class);
+    }
+
 }

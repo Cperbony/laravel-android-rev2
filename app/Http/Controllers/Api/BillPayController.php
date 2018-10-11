@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BillPayRequest;
+use App\Http\Resources\BillPayCollection;
 use App\Http\Resources\BillPayResource;
 use App\Models\BillPay;
 
@@ -18,7 +19,8 @@ class BillPayController extends Controller
     public function store(BillPayRequest $request)
     {
         $billPay = BillPay::create($request->all());
-        return new BillPayResource($billPay);
+//        return new BillPayResource($billPay);
+        return new BillPayCollection($billPay);
     }
 
     public function show(BillPay $bill_pay)
