@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
+use App\Http\Resources\CategoryResource;
 use App\Models\Category;
 
 class CategoryController extends Controller
@@ -12,18 +13,18 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::paginate();
-        return $categories;
+        return CategoryResource::collection($categories);
     }
 
     public function store(CategoryRequest $request)
     {
         $category = Category::create($request->all());
-        return $category;
+        return new CategoryResource($category);
     }
 
     public function show(Category $category)
     {
-        return $category;
+        return new CategoryResource($category);
     }
 
     public function update(CategoryRequest $request, Category $category)
@@ -40,7 +41,6 @@ class CategoryController extends Controller
             $category->delete();
         } catch (\Exception $e) {
         }
-
         return response()->json([], 204);
     }
 }

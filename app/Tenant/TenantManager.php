@@ -22,5 +22,4 @@ class TenantManager
     {
         $this->tenant = $tenant;
     }
-
 }
