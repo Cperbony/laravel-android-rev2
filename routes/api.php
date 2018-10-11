@@ -28,7 +28,8 @@ Route::group(['namespace', 'Api'], function () {
 //        Route::get('users', function () {
 //            return \App\Models\User::all();
 //        });
-            Route::resource('categories', 'CategoryController', ['except' => 'create', 'edit']);
+            Route::resource('categories', 'CategoryController', ['except' => ['create', 'edit']]);
+            Route::resource('bill_pays', 'BillPayController', ['except' => ['create', 'edit']]);
 
         });
     });
