@@ -1,0 +1,25 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Laravel com Android - Parte I",
+        "description": "API Financeira",
+        "contact": {
+            "email": "cperbony@gmail.com"
+        },
+        "version": "0.0.2"
+    },
+    "paths": {
+        "api/login": {
+            "post": {
+                "summary": "Login User",
+                "description": "Returns Token JWT",
+                "operationId": "App\\Http\\Controllers\\Api\\AuthController::login",
+                "responses": {
+                    "200": {
+                        "description": "Succesfull operation"
+                    }
+                }
+            }
+        }
+    }
+}
